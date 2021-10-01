@@ -6,7 +6,7 @@ app = Flask(__name__)
 ## Version Page
 @app.route('/')
 def index():
-    return "PlantGraph v0.1"
+    return "PlantGraph v0.1 - please submit a request via QR code."
 
 ## Graph data from qr code. Import data, and place in a pandas df
 @app.route('/graph')
@@ -16,8 +16,11 @@ def data():
     sample_freq = request.args.get('sample_freq', default = 60, type = int)
 
     ## Invalid data results in an error, need to validate URI data before running.
-    if len(device_data) % 5 != 0:
-        return 'Data error, the data you submitted is invalid.'
+    if device_data == 'Null':
+        return 'Please retry. No data was attached to your request.'
+
+    elif len(device_data) % 5 != 0:
+        return 'Data validation error. The data you submitted was incorrectly formatted.'
 
     else:
         split_data = []
@@ -52,10 +55,16 @@ def data():
         mos_legend = 'Moisture'
         mos_label = graph_data['Hour']
         mos_values = graph_data['Moisture']
+
+        light_legend = 'Day/Night'
+        light_label = graph_data['Hour']
+        light_values = graph_data['Light']
     
-        return render_template('graph.html', temp_values=temp_values, temp_label=temp_label, temp_legend=temp_legend,
-                           mos_values=mos_values, mos_label=mos_label, mos_legend=mos_legend
-                           )
+        return render_template('graph.html',
+                           temp_values=temp_values, temp_label=temp_label, temp_legend=temp_legend,
+                           mos_values=mos_values, mos_label=mos_label, mos_legend=mos_legend,
+                           light_values=light_values, light_label=light_label, light_legend=light_legend,
+                           device_id=device_id, sample_freq=sample_freq)
 
 if __name__ == '__main__':
     app.run(debug=True)

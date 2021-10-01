@@ -9,8 +9,8 @@
   </head>
   <div>
   <body>
-    <h3>PlantGraph v0.1</h3>
-    <!-- bar chart canvas element -->
+    <h3>{{ device_id }} {{ sample_freq }}</h3>
+    <!-- line chart canvas element -->
     <canvas id="temp_chart" width="1000" height="300"></canvas>
 
     <script>
@@ -27,13 +27,13 @@
             label: '{{ temp_legend }}',
             fill: true,
             lineTension: 0.1,
-            backgroundColor: "rgba(75,192,192,0.4)",
-            borderColor: "rgba(75,192,192,1)",
+            backgroundColor: "rgba(237,88,83,0.4)",
+            borderColor: "rgba(237,88,83,1)",
             borderCapStyle: 'butt',
             borderDash: [],
             borderDashOffset: 0.0,
             borderJoinStyle: 'miter',
-            pointBorderColor: "rgba(75,192,192,1)",
+            pointBorderColor: "rgba(237,88,83,1)",
             pointBackgroundColor: "#fff",
             pointBorderWidth: 1,
             pointHoverRadius: 5,
@@ -131,7 +131,7 @@
 
       // create the chart using the chart canvas
       var mos_chart = new Chart(ctx, {
-        type: 'line',
+        type: 'bar',
         data: chartData,
         options: {
           tooltips: {
