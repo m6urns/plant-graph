@@ -1,16 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
+<center>
   <head>
     <meta charset="utf-8" />
     <title>PlantGraph v0.1</title>
     <!-- import plugin script -->
     <script src='static/Chart.min.js'></script>
   </head>
+  <div>
   <body>
-    <h1>PlantGraph v0.1</h1>
+    <h3>PlantGraph v0.1</h3>
     <!-- bar chart canvas element -->
-
-    <canvas id="temp_chart" width="600" height="400"></canvas>
+    <canvas id="temp_chart" width="1000" height="300"></canvas>
 
     <script>
       // Global parameters:
@@ -84,9 +85,9 @@
       };
     </script>
 </div>
-<div style="width: 50%">
+<div>
 <!-- bar chart canvas element -->
-    <canvas id="mos_chart" width="600" height="400"></canvas> 
+    <canvas id="mos_chart" width="1000" height="300"></canvas>
 
     <script>
       // Global parameters:
@@ -95,7 +96,7 @@
 
       // define the chart data
       var chartData = {
-        labels : [{% for item in mos_labels %}
+        labels : [{% for item in mos_label %}
                    "{{item}}",
                   {% endfor %}],
         datasets : [{
@@ -161,4 +162,5 @@
     </script>
     </div>
   </body>
+</center>
 </html>
