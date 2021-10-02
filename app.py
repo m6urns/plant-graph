@@ -38,6 +38,8 @@ def data():
         r1, r2 = 1, len(split_data)
 
         hour = list(map(str, timeRange(r1, r2)))
+
+        num_points = len(split_data)
     
         graph_data = pd.DataFrame(
         {
@@ -64,7 +66,7 @@ def data():
                            temp_values=temp_values, temp_label=temp_label, temp_legend=temp_legend,
                            mos_values=mos_values, mos_label=mos_label, mos_legend=mos_legend,
                            light_values=light_values, light_label=light_label, light_legend=light_legend,
-                           device_id=device_id, sample_freq=sample_freq)
+                           device_id=device_id, sample_freq=sample_freq, num_points=num_points)
 
 if __name__ == '__main__':
     app.run(debug=True)
