@@ -10,7 +10,7 @@
   </head>
   <div>
   <body>
-    <h3>{{ device_id }} {{ sample_freq }}</h3>
+    <h3>{{ device_id }} {{ sample_freq }} {{ num_points }}</h3>
     <!-- line chart canvas element -->
     <canvas id="temp_chart" width="1000" height="300"></canvas>
 
@@ -219,7 +219,7 @@
         options: {
           scales: {
               xAxes: [{
-                  barThickness: 970/{{ num_points }},
+                  barThickness: 940/{{ num_points }},
                   gridLines: {
                        display:true
                    }
