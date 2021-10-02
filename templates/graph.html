@@ -59,6 +59,18 @@
         type: 'line',
         data: chartData,
         options: {
+          scales: {
+              xAxes: [{
+                  gridLines: {
+                       display:true
+                   }
+              }],
+              yAxes: [{
+                   gridLines: {
+                       display:false
+                   }
+              }],
+          },
           tooltips: {
             enabled: true,
             mode: 'single',
@@ -134,7 +146,7 @@
               xAxes: [{
                    barThickness: 970/{{ num_points }},  // number (pixels) or 'flex'
                    gridLines: {
-                       display:false
+                       display:true
                    }
               }],
               yAxes: [{
@@ -199,7 +211,7 @@
               xAxes: [{
                   barThickness: 970/{{ num_points }},
                   gridLines: {
-                       display:false
+                       display:true
                    }
               }],
               yAxes: [{
