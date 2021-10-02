@@ -60,12 +60,19 @@
         data: chartData,
         options: {
           scales: {
+              y: [{
+                min: 0,
+                max: 100
+              }],
               xAxes: [{
                   gridLines: {
                        display:true
                    }
               }],
               yAxes: [{
+                   ticks: {
+                       beginAtZero:true
+                   },
                    gridLines: {
                        display:false
                    }
@@ -130,7 +137,7 @@
 
       // create the chart using the chart canvas
       var mos_chart = new Chart(ctx, {
-        type: 'bar',
+        type: 'line',
         data: chartData,
         options: {
           tooltips: {
@@ -150,6 +157,9 @@
                    }
               }],
               yAxes: [{
+                   ticks: {
+                       beginAtZero:true
+                   },
                    gridLines: {
                        display:false
                    }
